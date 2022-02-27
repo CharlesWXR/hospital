@@ -2,6 +2,7 @@
 node_modules
 /dist
 /.history
+/target
 node
 
 # local env files

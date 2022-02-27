@@ -18,7 +18,7 @@ export default {
       let res = response.data;
       if (res.code === 200) {
         message.info("验证通过，跳转中……");
-        $router.push("/route");
+        $router.push("/navigator");
       } else {
         $router.push("/fail");
       }
