@@ -11,11 +11,19 @@ import router from './router'
 import store from './store'
 
 import axios from 'axios'
-import qs from 'qs'
+
+import VueQrcode from '@chenfengyuan/vue-qrcode';
 
 const app = createApp(App);
 
-let loadingInstance = null
+app.use(ElementPlus);
+app.use(AntDesign);
+
+app.component(VueQrcode.name, VueQrcode);
+
+axios.defaults.baseURL = 'http://localhost:8088/api';
+
+let loadingInstance = null;
 axios.interceptors.request.use(config => {
     // show loading in full screen mode
     if (!loadingInstance) {
@@ -55,4 +63,4 @@ axios.interceptors.response.use(response => {
 
 app.config.globalProperties.$http = axios;
 
-app.use(store).use(router).mount('#app')
+app.use(store).use(router).mount('#app');
